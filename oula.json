@@ -1,0 +1,496 @@
+[
+    {
+      "id": "sio_bdd",
+      "code": "B1.BDD-CM01",
+      "title": "Introduction aux bases de données",
+      "chapters": [
+        {   
+          "id": "ch1_intro_bdd",
+          "title": "Introduction aux bases de données",
+          "description": "Notions de données, SGBD, modèles de données (MCD, MLD, MPD), structures de tables, champs, clés et intégrité référentielle.",
+          "questions": [
+            {
+              "id": "q1",
+              "question": "Qu'est-ce qu'une « donnée » selon le cours ?",
+              "options": [
+                "Un programme informatique exécutable",
+                "Une information élémentaire que l'on souhaite conserver pour la retrouver et l'utiliser ultérieurement",
+                "Un ensemble de fichiers sauvegardés sur un serveur distant",
+                "Une règle de sécurité informatique"
+              ],
+              "answerIndex": 1,
+              "explanation": "Une donnée est une information élémentaire conservée afin d'être réutilisée. C'est sa mise en relation avec d'autres données qui lui donne du sens."
+            },
+            {
+              "id": "q2",
+              "question": "Pourquoi la valeur isolée « 12,50 » présente-t-elle peu d'intérêt seule ?",
+              "options": [
+                "Parce qu'elle n'est pas au format binaire",
+                "Parce que c'est l'organisation et la mise en relation des données qui permettent d'obtenir une information utile",
+                "Parce que les SGBD ne gèrent pas les nombres décimaux",
+                "Parce qu'elle doit être obligatoirement associée à un nom d'utilisateur"
+              ],
+              "answerIndex": 1,
+              "explanation": "Seule, la valeur 12,50 n'a pas de sens contextuel. Si l'on sait qu'elle correspond au prix d'un produit, elle devient une information exploitable."
+            },
+            {
+              "id": "q3",
+              "question": "Quelle est la définition exacte d'une base de données ?",
+              "options": [
+                "Un logiciel permettant de saisir du code SQL",
+                "Un ensemble structuré et organisé de données permettant leur stockage, leur consultation et leur mise à jour",
+                "Un composant matériel stockant la mémoire vive",
+                "Un fichier texte contenant uniquement des nombres"
+              ],
+              "answerIndex": 1,
+              "explanation": "Une base de données est un ensemble structuré et organisé de données permettant le stockage, la consultation et la mise à jour."
+            },
+            {
+              "id": "q4",
+              "question": "Que signifie l'acronyme SGBD ?",
+              "options": [
+                "Système de Gestion de Bases de Données",
+                "Serveur de Gestion des Bâtiments et Données",
+                "Structure Graphique de Base de Données",
+                "Système Général de Balisage de Données"
+              ],
+              "answerIndex": 0,
+              "explanation": "SGBD signifie Système de Gestion de Bases de Données (ex: MySQL, PostgreSQL, Oracle)."
+            },
+            {
+              "id": "q5",
+              "question": "Laquelle de ces fonctions N'EST PAS assurée par un SGBD ?",
+              "options": [
+                "Contrôler la cohérence des données",
+                "Gérer les droits d'accès aux données",
+                "Générer automatiquement le design graphique des interfaces web",
+                "Enregistrer, rechercher, modifier ou supprimer des données"
+              ],
+              "answerIndex": 2,
+              "explanation": "Un SGBD gère la création, le stockage, la cohérence, les droits d'accès et la manipulation des données, mais pas les interfaces utilisateur."
+            },
+            {
+              "id": "q6",
+              "question": "Quelle est la différence entre une base de données et un SGBD ?",
+              "options": [
+                "Il n'y a aucune différence, ce sont deux termes identiques",
+                "La base de données contient les données, tandis que le SGBD est le logiciel qui permet de les gérer",
+                "Le SGBD contient les données et la base de données est le langage SQL",
+                "La base de données est le matériel physique et le SGBD est le réseau"
+              ],
+              "answerIndex": 1,
+              "explanation": "Il ne faut pas confondre le contenu (la base de données) et l'outil de gestion (le SGBD)."
+            },
+            {
+              "id": "q7",
+              "question": "Parmi les logiciels suivants, lequel est un SGBD ?",
+              "options": [
+                "PostgreSQL",
+                "VS Code",
+                "Apache HTTP Server",
+                "Node.js"
+              ],
+              "answerIndex": 0,
+              "explanation": "PostgreSQL est un SGBD relationnel très populaire, tout comme MySQL, MariaDB, Oracle ou SQLite."
+            },
+            {
+              "id": "q8",
+              "question": "Quel est le rôle du Modèle Conceptuel de Données (MCD) ?",
+              "options": [
+                "Décrire le stockage physique des fichiers sur disque",
+                "Représenter les données et leurs liens de façon indépendante du SGBD utilisé",
+                "Générer les requêtes SQL de création de tables",
+                "Optimiser la vitesse du processeur du serveur"
+              ],
+              "answerIndex": 1,
+              "explanation": "Le MCD (ou modèle Entité-Association) permet de représenter le système d'information de manière conceptuelle, indépendamment de toute solution technique."
+            },
+            {
+              "id": "q9",
+              "question": "Dans le Modèle Logique de Données (MLD) relationnel, comment les données sont-elles organisées ?",
+              "options": [
+                "En structures arborescentes non reliées",
+                "Sous forme de tables reliées entre elles",
+                "En objets JSON imbriqués",
+                "En fichiers texte isolés"
+              ],
+              "answerIndex": 1,
+              "explanation": "Dans le modèle relationnel (MLD), les données sont structurées sous forme de tables dépendantes ou reliées entre elles."
+            },
+            {
+              "id": "q10",
+              "question": "À quoi correspond le Modèle Physique de Données (MPD) ?",
+              "options": [
+                "À l'expression écrite des besoins des utilisateurs",
+                "À l'implémentation (création) du modèle logique en tenant compte des caractéristiques du SGBD utilisé",
+                "Au schéma d'architecture réseau du bâtiment",
+                "Au dictionnaire des termes métier"
+              ],
+              "answerIndex": 1,
+              "explanation": "Le MPD concrétise le MLD dans le SGBD choisi (ex: script SQL de création des tables)."
+            },
+            {
+              "id": "q11",
+              "question": "Dans la représentation textuelle d'un MLD, comment indique-t-on la clé primaire ?",
+              "options": [
+                "En la précédant du caractère #",
+                "En la soulignant",
+                "En la mettant en majuscules",
+                "En l'entourant d'étoiles (*)"
+              ],
+              "answerIndex": 1,
+              "explanation": "Par convention dans la représentation textuelle du MLD, la clé primaire est soulignée."
+            },
+            {
+              "id": "q12",
+              "question": "Dans la représentation textuelle d'un MLD, comment identifie-t-on une clé étrangère ?",
+              "options": [
+                "Elle est soulignée",
+                "Elle est précédée du caractère #",
+                "Elle est mise entre guillemets",
+                "Elle est écrite en italique sans autre symbole"
+              ],
+              "answerIndex": 1,
+              "explanation": "Par convention textuelle, une clé étrangère est précédée du symbole # (ex: #idCLI)."
+            },
+            {
+              "id": "q13",
+              "question": "Dans une table relationnelle, à quoi correspond un « champ » (ou attribut) ?",
+              "options": [
+                "À une ligne de données",
+                "À une colonne de la table",
+                "À la totalité de la base de données",
+                "Au nom du SGBD"
+              ],
+              "answerIndex": 1,
+              "explanation": "Un champ (ou attribut) correspond à une colonne d'une table."
+            },
+            {
+              "id": "q14",
+              "question": "Qu'est-ce qu'un « enregistrement » (ou occurrence) dans une table ?",
+              "options": [
+                "Une ligne de la table regroupant les valeurs des champs pour une entité unique",
+                "Le type de donnée attribué à une colonne",
+                "La sauvegarde complète du fichier sur disque",
+                "Une contrainte d'unicité"
+              ],
+              "answerIndex": 0,
+              "explanation": "Un enregistrement (ou occurrence) correspond à une ligne d'une table."
+            },
+            {
+              "id": "q15",
+              "question": "Quelle bonne pratique faut-il respecter lors du nommage d'un champ ?",
+              "options": [
+                "Utiliser le plus d'espaces et d'accents possible",
+                "Utiliser un nom explicite en évitant les espaces et les accents",
+                "Donner exactement le même nom à tous les champs de la table",
+                "Utiliser uniquement un chiffre unique"
+              ],
+              "answerIndex": 1,
+              "explanation": "Les noms de champs doivent être clairs et explicites, en évitant les espaces et caractères accentués pour prévenir les erreurs de syntaxe."
+            },
+            {
+              "id": "q16",
+              "question": "Que permet de stocker le type de données `VARCHAR(50)` ?",
+              "options": [
+                "Un entier positif compris entre 0 et 50",
+                "Une chaîne de caractères ayant une longueur maximale de 50 caractères",
+                "Une date exacte sur 50 jours",
+                "Un nombre décimal à 50 chiffres après la virgule"
+              ],
+              "answerIndex": 1,
+              "explanation": "VARCHAR(x) permet de stocker une chaîne de caractères de longueur variable jusqu'à 'x' caractères maximum."
+            },
+            {
+              "id": "q17",
+              "question": "Que signifie le type `DECIMAL(6,2)` pour un champ de prix ?",
+              "options": [
+                "Un nombre ayant 6 chiffres après la virgule et 2 avant",
+                "Un nombre ayant au maximum 6 chiffres au total, dont 2 après la virgule",
+                "Un texte de 6 mots séparés par 2 virgules",
+                "Une date codée sur 6 mois et 2 ans"
+              ],
+              "answerIndex": 1,
+              "explanation": "DECIMAL(x,y) indique un nombre ayant x chiffres au total, dont y chiffres après la virgule (ex: 1234,56)."
+            },
+            {
+              "id": "q18",
+              "question": "Que garantit la propriété (ou contrainte) `NOT NULL` sur un champ ?",
+              "options": [
+                "Le champ peut être laissé vide lors de l'insertion",
+                "Une valeur doit obligatoirement être renseignée pour ce champ",
+                "La valeur doit être strictement égale à zéro",
+                "Le champ devient automatiquement une clé étrangère"
+              ],
+              "answerIndex": 1,
+              "explanation": "NOT NULL impose qu'une valeur soit obligatoirement fournie (l'absence de valeur est interdite)."
+            },
+            {
+              "id": "q19",
+              "question": "À quoi sert la propriété `AUTO_INCREMENT` ?",
+              "options": [
+                "À augmenter la taille de la base de données automatiquement",
+                "À générer automatiquement une nouvelle valeur numérique séquentielle pour chaque nouvel enregistrement",
+                "À mettre à jour les prix en fonction de l'inflation",
+                "À supprimer les doublons au bout de 24 heures"
+              ],
+              "answerIndex": 1,
+              "explanation": "AUTO_INCREMENT est souvent utilisé sur les clés primaires entières pour attribuer un identifiant unique (+1) à chaque nouvel enregistrement."
+            },
+            {
+              "id": "q20",
+              "question": "Qu'est-ce qu'un dictionnaire de données ?",
+              "options": [
+                "Un livre répertoriant les commandes SQL",
+                "Un document décrivant les champs d'une base de données (nom, signification, type, contraintes)",
+                "Un logiciel de traduction des tables",
+                "Un fichier journal contenant les erreurs du SGBD"
+              ],
+              "answerIndex": 1,
+              "explanation": "Le dictionnaire de données répertorie et détaille la structure de toutes les colonnes/champs des tables (nom, type, nullabilité, etc.)."
+            },
+            {
+              "id": "q21",
+              "question": "Quelle est la fonction principale d'une clé primaire ?",
+              "options": [
+                "Accélérer la connexion Internet au SGBD",
+                "Identifier de manière unique chaque enregistrement d'une table",
+                "Permettre le chiffrement des mot de passe",
+                "Calculer automatiquement la moyenne des valeurs"
+              ],
+              "answerIndex": 1,
+              "explanation": "La clé primaire (PRIMARY KEY) garantit l'unicité de chaque ligne/enregistrement dans une table."
+            },
+            {
+              "id": "q22",
+              "question": "Quelles sont les deux contraintes fondamentales d'une clé primaire ?",
+              "options": [
+                "Elle peut être nulle et doit contenir du texte",
+                "Ses valeurs doivent être uniques et elle ne peut pas être NULL",
+                "Elle doit obligatoirement être un nombre négatif et comporter 10 chiffres",
+                "Elle doit changer de valeur à chaque consultation"
+              ],
+              "answerIndex": 1,
+              "explanation": "Une clé primaire ne peut jamais contenir la valeur NULL et ses valeurs doivent être strictement uniques."
+            },
+            {
+              "id": "q23",
+              "question": "Qu'appelle-t-on une « clé primaire composée » ?",
+              "options": [
+                "Une clé contenant à la fois des chiffres et des lettres",
+                "Une clé primaire formée par la combinaison de plusieurs champs de la table",
+                "Une clé primaire partagée entre deux SGBD différents",
+                "Une clé qui change automatiquement de nom"
+              ],
+              "answerIndex": 1,
+              "explanation": "Quand un seul champ ne suffit pas à identifier un enregistrement de manière unique, la clé primaire est composée de plusieurs champs (ex: #idCOM + #idPRO dans ligneCommande)."
+            },
+            {
+              "id": "q24",
+              "question": "Qu'est-ce qu'une clé étrangère (FOREIGN KEY) ?",
+              "options": [
+                "Un mot de passe créé par un utilisateur distant",
+                "Un champ d'une table qui fait référence à la clé primaire d'une autre table",
+                "Une clé primaire de type texte uniquement",
+                "Une clé utilisée pour sauvegarder la base de données"
+              ],
+              "answerIndex": 1,
+              "explanation": "Une clé étrangère établit le lien entre deux tables en pointant vers la clé primaire d'une autre table."
+            },
+            {
+              "id": "q25",
+              "question": "Qu'est-ce que l'intégrité référentielle ?",
+              "options": [
+                "L'interdiction d'avoir plus de 100 enregistrements dans une table",
+                "Une règle garantissant qu'une clé étrangère pointe toujours vers un enregistrement existant dans la table référencée",
+                "La sauvegarde quotidienne automatique de la base",
+                "L'obligation d'avoir une clé primaire composée dans chaque table"
+              ],
+              "answerIndex": 1,
+              "explanation": "L'intégrité référentielle garantit la cohérence des liens entre les tables (par exemple, empêcher la création d'une commande associée à un identifiant client qui n'existe pas)."
+            },
+            {
+              "id": "q26",
+              "question": "Selon le cours, quel est le format standard de stockage d'un champ de type DATE ?",
+              "options": [
+                "DD/MM/YYYY",
+                "YYYY-MM-DD",
+                "MM-DD-YYYY",
+                "YYYY/DD/MM"
+              ],
+              "answerIndex": 1,
+              "explanation": "Le type DATE permet de stocker une date au format YYYY-MM-DD."
+            },
+            {
+              "id": "q27",
+              "question": "Comment le type BOOLEAN est-il techniquement codé au sein du SGBD MySQL ?",
+              "options": [
+                "VARCHAR(1)",
+                "tinyint(1)",
+                "INT(10)",
+                "DECIMAL(1,0)"
+              ],
+              "answerIndex": 1,
+              "explanation": "En MySQL, le type BOOLEAN est représenté sous la forme d'un tinyint(1) (0 pour FALSE, 1 pour TRUE)."
+            },
+            {
+              "id": "q28",
+              "question": "À quoi sert la propriété DEFAULT sur un champ de table ?",
+              "options": [
+                "À forcer la saisie d'une valeur par l'utilisateur",
+                "À attribuer automatiquement une valeur prédéfinie lorsqu'aucune valeur n'est fournie",
+                "À supprimer l'enregistrement en cas d'erreur",
+                "À convertir le champ en clé primaire"
+              ],
+              "answerIndex": 1,
+              "explanation": "La contrainte DEFAULT permet d'attribuer automatiquement une valeur par défaut quand aucune donnée n'est spécifiée à l'insertion."
+            },
+            {
+              "id": "q29",
+              "question": "Que garantit la contrainte UNIQUE appliquée à une colonne ?",
+              "options": [
+                "Que le champ devient automatiquement la clé primaire",
+                "Que deux enregistrements ne pourront pas posséder la même valeur pour ce champ",
+                "Que la colonne ne accepte que des nombres entiers",
+                "Que la valeur ne peut plus jamais être modifiée"
+              ],
+              "answerIndex": 1,
+              "explanation": "La propriété UNIQUE impose l'unicité des valeurs d'un champ pour éviter les doublons sur cette colonne."
+            },
+            {
+              "id": "q30",
+              "question": "Dans la représentation graphique du MLD (outil Looping MCD), comment les clés étrangères sont-elles stylisées ?",
+              "options": [
+                "En gras et rouge",
+                "En bleu et en italique",
+                "Surlignées en jaune",
+                "Précédées d'une astérisque (*)"
+              ],
+              "answerIndex": 1,
+              "explanation": "Sur le schéma graphique de Looping MCD, la clé primaire est soulignée et la clé étrangère apparaît en bleu et italique."
+            },
+            {
+              "id": "q31",
+              "question": "Quel autre nom est attribué au Modèle Conceptuel de Données (MCD) ?",
+              "options": [
+                "Modèle Entité Association",
+                "Modèle Logique de Données",
+                "Modèle Physique de Données",
+                "Modèle Objet Relationnel"
+              ],
+              "answerIndex": 0,
+              "explanation": "Le Modèle Conceptuel de Données (MCD) est également appelé Modèle Entité Association."
+            },
+            {
+              "id": "q32",
+              "question": "Quel autre nom est attribué au Modèle Logique de Données (MLD) dans ce contexte ?",
+              "options": [
+                "Modèle Conceptuel",
+                "Modèle Relationnel",
+                "Modèle Réseau",
+                "Modèle Matériel"
+              ],
+              "answerIndex": 1,
+              "explanation": "Le Modèle Logique de Données (MLD) correspond au modèle relationnel."
+            },
+            {
+              "id": "q33",
+              "question": "Dans le cours, quel est le rôle attribué à la table LIGNECOMMANDE ?",
+              "options": [
+                "Stocker les coordonnées bancaires des clients",
+                "Contenir les caractéristiques détaillées des articles d'une commande",
+                "Enregistrer les identifiants de connexion des employés",
+                "Lister l'historique des requêtes SQL exécutées"
+              ],
+              "answerIndex": 1,
+              "explanation": "La table LIGNECOMMANDE contient les caractéristiques détaillées d'une commande (quantité commandée, remise, produits concernés)."
+            },
+            {
+              "id": "q34",
+              "question": "Dans la table LIGNECOMMANDE (#idCOM, #idPRO, qteCommandee, remiseLigne), de quoi est composée la clé primaire ?",
+              "options": [
+                "Du seul champ idCOM",
+                "Du seul champ idPRO",
+                "De la combinaison des champs idCOM et idPRO",
+                "Du champ qteCommandee"
+              ],
+              "answerIndex": 2,
+              "explanation": "Il s'agit d'une clé primaire composée formée par le couple (idCOM, idPRO) pour identifier chaque ligne de commande."
+            },
+            {
+              "id": "q35",
+              "question": "Que permet de stocker le type de données TIME ?",
+              "options": [
+                "Une durée en millisecondes uniquement",
+                "Une heure au format HH:MM:SS",
+                "Un horodatage complet avec date et heure",
+                "Un fuseau horaire texte"
+              ],
+              "answerIndex": 1,
+              "explanation": "Le type TIME est réservé au stockage de l'heure au format HH:MM:SS."
+            },
+            {
+              "id": "q36",
+              "question": "Dans quel format le type DATETIME stocke-t-il les informations ?",
+              "options": [
+                "Uniquement l'heure au format HH:MM:SS",
+                "À la fois une date et une heure",
+                "Le nombre de secondes écoulées depuis 1970",
+                "Le jour de la semaine en texte"
+              ],
+              "answerIndex": 1,
+              "explanation": "Le type DATETIME permet de stocker conjointement une date et une heure."
+            },
+            {
+              "id": "q37",
+              "question": "Quelle situation illustre une violation de l'intégrité référentielle ?",
+              "options": [
+                "Insérer un prix sous forme de nombre décimal",
+                "Associer une commande à un numéro de client (idCLI) qui n'existe pas dans la table CLIENT",
+                "Créer une table sans champ de type VARCHAR",
+                "Utiliser le même nom de champ dans deux tables différentes"
+              ],
+              "answerIndex": 1,
+              "explanation": "L'intégrité référentielle est violée lorsqu'une clé étrangère fait référence à une valeur inexistante dans la table cible."
+            },
+            {
+              "id": "q38",
+              "question": "Pourquoi l'utilisation de fichiers isolés devient-elle difficile par rapport à une base de données ?",
+              "options": [
+                "Parce que les fichiers isolés ne prennent pas en charge le texte",
+                "Lorsque le volume augmente et que les informations sont interliées",
+                "Parce que les fichiers isolés nécessitent obligatoirement un SGBD",
+                "Parce qu'un fichier ne peut contenir qu'un seul chiffre"
+              ],
+              "answerIndex": 1,
+              "explanation": "Gérer des données dans des fichiers séparés devient difficile quand le volume grandit et que les informations possèdent des liens entre elles."
+            },
+            {
+              "id": "q39",
+              "question": "Parmi les propositions suivantes, laquelle décrit la notion de « valeur » dans une table ?",
+              "options": [
+                "Le nom de la colonne",
+                "Le contenu d'un champ pour un enregistrement donné",
+                "Le nombre total de lignes de la table",
+                "Le type de données (INT, VARCHAR, etc.)"
+              ],
+              "answerIndex": 1,
+              "explanation": "Une valeur correspond au contenu précis d'un champ pour un enregistrement spécifique (ex: la ville 'Montpellier' pour le client 1)."
+            },
+            {
+                "id": "q40",
+                "question": "Quel est l'un des principaux objectifs de la normalisation d'une base de données ?",
+                "options": [
+                    "Multiplier le nombre de doublons pour sécuriser les données",
+                    "Limiter les répétitions inutiles et éviter les incohérences lors des mises à jour",
+                    "Forcer l'utilisation d'une seule table unique pour toutes les données",
+                    "Supprimer le besoin d'utiliser des clés primaires"
+                ],
+                "answerIndex": 1,
+                "explanation": "La normalisation vise à réduire la redondance des données pour faciliter les mises à jour et empêcher les incohérences."
+                }
+            ]
+            }
+        ]
+    }
+]
