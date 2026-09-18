@@ -61,7 +61,6 @@ export default function QuizEngine({ user, quizConfig, onBack, onComplete }) {
 
         const shuffledPool = [...pool].sort(() => 0.5 - Math.random());
 
-        // Découpe selon le nombre de questions demandé (10, 20, ou 'all')
         let targetCount = shuffledPool.length;
         if (quizConfig.questionCount && quizConfig.questionCount !== 'all') {
           targetCount = parseInt(quizConfig.questionCount, 10);
@@ -73,7 +72,6 @@ export default function QuizEngine({ user, quizConfig, onBack, onComplete }) {
         setCurrentIndex(0);
         setScore(0);
 
-        // Sauvegarde de l'état initial
         if (storageKey) {
           localStorage.setItem(storageKey, JSON.stringify({
             savedQuestions: finalQuestions,
@@ -165,17 +163,17 @@ export default function QuizEngine({ user, quizConfig, onBack, onComplete }) {
         if (u.id === user.id || u.username === user.username) {
           const newPts = (u.pts || 0) + ptsEarned;
           
-          let newTitle = u.title || 'Noob';
-          if (newPts >= 1000) newTitle = 'God Saint michel';
-          else if (newPts >= 500) newTitle = 'Gluant du zob';
-          else if (newPts >= 250) newTitle = 'Afrodite gluant';
-          else if (newPts >= 150) newTitle = 'Molusque';
-          else if (newPts >= 75) newTitle = 'Tié un sanglier';
+          // let newTitle = u.title || 'Noob';
+          // if (newPts >= 1000) newTitle = 'God Saint michel';
+          // else if (newPts >= 500) newTitle = 'Gluant du zob';
+          // else if (newPts >= 250) newTitle = 'Afrodite gluant';
+          // else if (newPts >= 150) newTitle = 'Molusque';
+          // else if (newPts >= 75) newTitle = 'Tié un sanglier';
 
           return {
             ...u,
             pts: newPts,
-            title: newTitle
+            title: title
           };
         }
         return u;
@@ -191,7 +189,7 @@ export default function QuizEngine({ user, quizConfig, onBack, onComplete }) {
 
       setSyncStatus({
         success: true,
-        message: `+${ptsEarned} PTS enregistrés avec succès sur GitHub !`
+        message: `+${ptsEarned} Tombe les pts`
       });
 
       if (onComplete) onComplete(sessionUser);

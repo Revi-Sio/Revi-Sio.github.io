@@ -101,7 +101,7 @@ export default function Hub({ user, onLogout, onSelectCategory, onStartRandom, o
               CHARGEMENT DU CLASSEMENT...
             </div>
           ) : (
-            <div className="space-y-2 font-mono text-xs">
+            <div className="space-y-2 font-mono text-xs h-68 overflow-auto">
               {leaderboard.map((u, index) => {
                 const isSelf = u.username === currentUser.username;
                 return (
